@@ -187,10 +187,20 @@ ul{
     }
 }
 
-.todo-input{
-    .btn{
-        border: 1px solid #fcd71f;
-        background: #fcd71f;
-        border-radius: 0;
-    }
+.button{
+    color: #161616;
+}
+
+.button:disabled{
+    opacity: 0.5;
+}
+
+.button--add{
+    background-color: #9bff79e1;
+    border-radius: 5px;
+}
+
+.button--delete{
+    background-color: #ff7979e1;
+    border-radius: 5px;
 }
