@@ -1,40 +1,14 @@
 <div class="todos">
     <div class="container todo-container">
-        <h1 class="mt-5 text-warning">Todos</h1>
+        <h1 class="mt-5 text-success">Todos</h1>
 
         <ul class="todo-list">
-            <li class="todo-item custom-checkbox">
-                <div>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <p>Todo 1</p>
-                <button class="btn-close"></button>
-            </li>
-
-            <li class="todo-item custom-checkbox">
-                <div>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <p>Todo 2</p>
-                <button class="btn-close"></button>
-            </li>
-
-            <li class="todo-item custom-checkbox">
-                <div>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <p>Todo 3</p>
-                <button class="btn-close"></button>
-            </li>
-
+            <app-to-do-list-item *ngFor="let item of todoArray" [item]="item" (deleteTodoEvent)="deleteTodo($event)"></app-to-do-list-item>
         </ul>
 
         <div class="todo-input">
-            <input type="text" name="todoValue" placeholder="What needs to be done?">
-            <button class="btn">Add</button>
+            <input type="text" matInput  name="todoValue" placeholder="What needs to be done?" [(ngModel)]="inputValue">
+            <button class="btn button button--add" [disabled]="inputValue === ''" (click)="addTodo()">Add</button>
         </div>
 
     </div>
