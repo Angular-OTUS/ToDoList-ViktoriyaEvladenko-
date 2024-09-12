@@ -1,13 +1,30 @@
-<div class="todos">
-    <div class="container todo-container">
-        <h1 class="mt-5 text-success">Todos</h1>
+<div class="todos container">
+    <div class="todo-container">
+        <h1 class="mt-5 text-warning">Todos</h1>
         <mat-spinner [class.d-none]="!isLoading"></mat-spinner>
-        <ul class="todo-list" [class.d-none]="isLoading">
-            <app-to-do-list-item *ngFor="let item of todoArray" [item]="item" (deleteTodoEvent)="deleteTodo($event)"></app-to-do-list-item>
-        </ul>
+        <div class="todo-templaite">
+            <div class="" style="width: 500px;">
+                <ul class="todo-list" [class.d-none]="isLoading">
+                    <app-to-do-list-item 
+                        *ngFor="let item of todoArray" [item]="item"
+                        (deleteTodoEvent)="deleteTodo($event)" 
+                        (click)="selectIdItem(item.id)" 
+                        [styleId]="selectedItemId">
+                    </app-to-do-list-item>
+                </ul>
 
-        <div class="todo-input" [class.d-none]="isLoading">
-            <input type="text" matInput  name="todoValue" placeholder="What needs to be done?" [(ngModel)]="inputValue">
-            <app-button [title]="'Add'" [class]="'btn button button--add'" (click)="addTodo()"></app-button>
+                <div class="todo-input" [class.d-none]="isLoading">
+                    <input type="text" matInput name="todoValue" placeholder="What needs to be done?"
+                        [(ngModel)]="inputValue">
+                    <textarea name="description" id="description" [(ngModel)]="descriptionValue"
+                        class="desc-input" rows="4" placeholder="Description"></textarea>
+                    <app-button [title]="'Add'" [class]="'btn button button--add mt-2'"
+                        (click)="addTodo()" appPrompt="Кликните, чтобы добавить задачу"></app-button>
+                </div>
+            </div>
+            <div class="descriptionTodo" *ngIf="selectedItemId !== null">
+                <p>{{getDescription}}</p>
+            </div>
+        </div>
     </div>
 </div>
