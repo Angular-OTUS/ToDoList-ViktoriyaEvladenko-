@@ -32,7 +32,6 @@ h1 {
 
 .todo-list,
 .todo-info {
-    width: 40%;
     border: 1px solid #3c3c3c;
     padding: 10px;
     font-size: 30px;
@@ -117,7 +116,6 @@ h1 {
 
 .todo-input {
     position: relative;
-    width: 40%;
 }
 
 .todo-all-button {
@@ -203,4 +201,37 @@ ul{
 .button--delete{
     background-color: #ff7979e1;
     border-radius: 5px;
+}
+
+.todo-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desc-input{
+    width: 100%;
+    border: 1px solid #3c3c3c;
+    padding: 10px;
+}
+
+.todos{
+    display: flex;
+}
+
+.todo-templaite{
+    display: flex;
+    gap: 20px;
+}
+
+.descriptionTodo{
+    width: 300px;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #473b00;
+
+    p{
+        max-width: 300px;
+        word-wrap: break-word;
+    }
 }

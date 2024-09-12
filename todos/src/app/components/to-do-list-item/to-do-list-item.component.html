@@ -1,8 +1,8 @@
-<li class="todo-item custom-checkbox">
+<li class="todo-item custom-checkbox" [ngClass]="{'select' : styleId === item.id}" appPrompt="Кликните, чтобы увидеть описание">
     <div>
         <input type="checkbox">
         <span class="checkmark"></span>
     </div>
     <p>{{item.text}}</p>
-    <app-button [class]="'btn-close button button--delete'" (click)="deleteTodo(item.id)"></app-button>
+    <app-button [class]="'btn-close button button--delete'" (click)="deleteTodo(item.id)" appPrompt="Кликните, чтобы удалить задачу"></app-button>
 </li>
