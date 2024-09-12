@@ -3,15 +3,24 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToDoListItemComponent } from '../to-do-list-item/to-do-list-item.component';
 import { MatInputModule } from '@angular/material/input';
+import { ButtonComponent } from '../button/button.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [NgFor, FormsModule, ToDoListItemComponent, MatInputModule],
+  imports: [NgFor, FormsModule, ToDoListItemComponent, MatInputModule, ButtonComponent, MatProgressSpinnerModule],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
 export class ToDoListComponent {
+  isLoading: boolean = true;
+
+  ngOnInit(){
+    setTimeout(()=> {
+      this.isLoading = false;
+    }, 500)
+  }
 
   inputValue = '';
   todoArray = [
@@ -41,4 +50,5 @@ export class ToDoListComponent {
     this.todoArray = [...this.todoArray, newTodo];
     this.inputValue = '';
   }
+ 
 }

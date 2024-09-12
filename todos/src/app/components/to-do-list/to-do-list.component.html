@@ -1,15 +1,13 @@
 <div class="todos">
     <div class="container todo-container">
         <h1 class="mt-5 text-success">Todos</h1>
-
-        <ul class="todo-list">
+        <mat-spinner [class.d-none]="!isLoading"></mat-spinner>
+        <ul class="todo-list" [class.d-none]="isLoading">
             <app-to-do-list-item *ngFor="let item of todoArray" [item]="item" (deleteTodoEvent)="deleteTodo($event)"></app-to-do-list-item>
         </ul>
 
-        <div class="todo-input">
+        <div class="todo-input" [class.d-none]="isLoading">
             <input type="text" matInput  name="todoValue" placeholder="What needs to be done?" [(ngModel)]="inputValue">
-            <button class="btn button button--add" [disabled]="inputValue === ''" (click)="addTodo()">Add</button>
-        </div>
-
+            <app-button [title]="'Add'" [class]="'btn button button--add'" (click)="addTodo()"></app-button>
     </div>
 </div>

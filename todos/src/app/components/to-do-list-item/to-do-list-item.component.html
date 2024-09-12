@@ -4,5 +4,5 @@
         <span class="checkmark"></span>
     </div>
     <p>{{item.text}}</p>
-    <button class="btn-close button button--delete" (click)="deleteTodo(item.id)"></button>
+    <app-button [class]="'btn-close button button--delete'" (click)="deleteTodo(item.id)"></app-button>
 </li>
